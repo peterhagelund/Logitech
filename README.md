@@ -49,6 +49,35 @@ TL;DR:
 
 ## Using
 
+For projects that depend upon `iRobot`, make sure `Package.swift` contains the correct dependency:
+
+    // swift-tools-version:5.0
+    // The swift-tools-version declares the minimum version of Swift required to build this package.
+
+    import PackageDescription
+
+    let package = Package(
+        name: "<package name>",
+        products: [
+            .library(
+                name: "<package name>",
+                targets: ["<your target>"]),
+        ],
+        dependencies: [
+            .package(url: "https://github.com/peterhagelund/Logitech.git", from: "1.0.0")
+            .package(url: "https://github.com/...", from: "...")
+            .package(url: "https://github.com/...", from: "...")
+        ],
+        targets: [
+            .target(
+                name: "<your target>",
+                dependencies: ["Logitech", "...", "..."]),
+            .testTarget(
+                name: "<your test target>",
+                dependencies: ["<your target>"]),
+        ]
+    )
+
 The `RumblePad` class can be used in two ways:
 
 - Polling.
