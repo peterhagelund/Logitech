@@ -23,64 +23,64 @@ public protocol RumblePadDelegate: AnyObject {
     /// Invoked when the left joystick is manipulated.
     ///
     /// - Parameters:
-    ///   - horizontal: The horizontal value (-128 to 127).
-    ///   - vertical: The vertical value (-128 to 127).
+    ///   - horizontal: The horizontal value (`-128` to `127`).
+    ///   - vertical: The vertical value (`-128` to `127`).
     
     func leftJoystickDidChange(horizontal: Int, vertical: Int)
     
     /// Invoked when the right joystick is manipulated.
     ///
     /// - Parameters:
-    ///   - horizontal: The horizontal value (-128 to 127).
-    ///   - vertical: The vertical value (-128 to 127).
+    ///   - horizontal: The horizontal value (`-128` to `127`).
+    ///   - vertical: The vertical value (`-128` to `127`).
     func rightJoystickDidChange(horizontal: Int, vertical: Int)
     
-    /// Invoked when button 1 is pressed or released.
+    /// Invoked when button `1` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button1DidChange(pressed: Bool)
     
-    /// Invoked when button 2 is pressed or released.
+    /// Invoked when button `2` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button2DidChange(pressed: Bool)
     
-    /// Invoked when button 3 is pressed or released.
+    /// Invoked when button `3` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button3DidChange(pressed: Bool)
     
-    /// Invoked when button 4 is pressed or released.
+    /// Invoked when button `4` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button4DidChange(pressed: Bool)
     
-    /// Invoked when button 5 is pressed or released.
+    /// Invoked when button `5` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button5DidChange(pressed: Bool)
     
-    /// Invoked when button 6 is pressed or released.
+    /// Invoked when button `6` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button6DidChange(pressed: Bool)
     
-    /// Invoked when button 7 is pressed or released.
+    /// Invoked when button `7` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button7DidChange(pressed: Bool)
     
-    /// Invoked when button 8 is pressed or released.
+    /// Invoked when button `8` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button8DidChange(pressed: Bool)
     
-    /// Invoked when button 9 is pressed or released.
+    /// Invoked when button `9` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button9DidChange(pressed: Bool)
     
-    /// Invoked when button 10 is pressed or released.
+    /// Invoked when button `10` is pressed or released.
     ///
     /// - Parameter pressed: The pressed state (`true` when pressed; `false` when released).
     func button10DidChange(pressed: Bool)
@@ -96,14 +96,14 @@ public protocol RumblePadDelegate: AnyObject {
     ///   - left: The pressed state of the `left` direction (`true` when pressed; `false` when released).
     func padDidChange(up: Bool, right: Bool, down: Bool, left: Bool)
     
-    /// Invoked when the "rumble" mode is changed.
+    /// Invoked when the `rumble` mode is changed.
     ///
-    /// - Parameter on: The state of the "rumble" mode (`true` when on; `false` when off).
+    /// - Parameter on: The state of the `rumble` mode (`true` when on; `false` when off).
     func rumbleDidChange(on: Bool)
     
-    /// Invoked when the mode button is pressed or released.
+    /// Invoked when the `mode` button is pressed or released.
     ///
-    /// - Parameter on: The state of the mode button (`true` when on; `false` when off).
+    /// - Parameter on: The state of the `mode` button (`true` when on; `false` when off).
     func modeDidChange(on: Bool)
 }
 
@@ -132,71 +132,71 @@ public class RumblePad {
     /// The `RumblePad`'s optional delegate.
     public weak var delegate: RumblePadDelegate?
     
-    /// The connected state (`true` when a RumblePad is connected; `false` otherwise`).
+    /// The connected state (`true` when a RumblePad controller is connected; `false` otherwise`).
     public var connected: Bool {
         get {
             return device != nil
         }
     }
     
-    /// The left joystick's horizontal position (-128 to 127).
+    /// The left joystick's horizontal position (`-128` to `127`).
     public private(set) var leftJoystickHorizontal: Int = 0
     
-    /// The left joystick's vertical position (-128 to 127).
+    /// The left joystick's vertical position (`-128` to `127`).
     public private(set) var leftJoystickVertical: Int = 0
     
-    /// The right joystick's horizontal position (-128 to 127).
+    /// The right joystick's horizontal position (`-128` to `127`).
     public private(set) var rightJoystickHorizontal: Int = 0
     
-    /// The right joystick's vertical position (-128 to 127).
+    /// The right joystick's vertical position (`-128 to 127`).
     public private(set) var rightJoystickVertical: Int = 0
     
-    /// Button 1's pressed state.
+    /// Button `1`'s pressed state.
     public private(set) var button1: Bool = false
     
-    /// Button 2's pressed state.
+    /// Button `2`'s pressed state.
     public private(set) var button2: Bool = false
     
-    /// Button 3's pressed state.
+    /// Button `3`'s pressed state.
     public private(set) var button3: Bool = false
     
-    /// Button 4's pressed state.
+    /// Button `4`'s pressed state.
     public private(set) var button4: Bool = false
     
-    /// Button 5's pressed state.
+    /// Button `5`'s pressed state.
     public private(set) var button5: Bool = false
     
-    /// Button 6's pressed state.
+    /// Button `6`'s pressed state.
     public private(set) var button6: Bool = false
     
-    /// Button 7's pressed state.
+    /// Button `7`'s pressed state.
     public private(set) var button7: Bool = false
     
-    /// Button 8's pressed state.
+    /// Button `8`'s pressed state.
     public private(set) var button8: Bool = false
     
-    /// Button 9's pressed state.
+    /// Button `9`'s pressed state.
     public private(set) var button9: Bool = false
     
-    /// Button 10's pressed state.
+    /// Button `10`'s pressed state.
     public private(set) var button10: Bool = false
     
-    /// The pad up pressed state.
+    /// The pad `up` pressed state.
     public private(set) var padUp: Bool = false
     
-    /// The pad right pressed state.
+    /// The pad `right` pressed state.
     public private(set) var padRight: Bool = false
     
-    /// The pad down pressed state.
+    /// The pad `down` pressed state.
     public private(set) var padDown: Bool = false
     
-    /// The pad left pressed state.
+    /// The pad `left` pressed state.
     public private(set) var padLeft: Bool = false
     
-    /// The "rumble" state.
+    /// The `rumble` state.
     public private(set) var rumble: Bool = false
     
-    /// The mode state.
+    /// The `mode` state.
     public private(set) var mode: Bool = false
     
     /// The I/O HID manager.
@@ -371,8 +371,8 @@ public class RumblePad {
 /// Callback for a matching device.
 ///
 /// This callback is invoked under two circumstances:
-/// - When a `RumblePad` is initialized and a RumbledPad is already connected.
-/// - When a RumblePad is connected and a `RumblePad` instance already exists.
+/// - When a `RumblePad` is initialized and a RumbledPad controller is already connected.
+/// - When a RumblePad controller is connected and a `RumblePad` instance already exists.
 ///
 /// The only role of this function is to invoke `RumblePad.deviceMatched(...)`.
 ///

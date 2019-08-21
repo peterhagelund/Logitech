@@ -64,7 +64,7 @@ For projects that depend upon `iRobot`, make sure `Package.swift` contains the c
                 targets: ["<your target>"]),
         ],
         dependencies: [
-            .package(url: "https://github.com/peterhagelund/Logitech.git", from: "1.0.0")
+            .package(url: "https://github.com/peterhagelund/Logitech.git", from: "1.0.1")
             .package(url: "https://github.com/...", from: "...")
             .package(url: "https://github.com/...", from: "...")
         ],
